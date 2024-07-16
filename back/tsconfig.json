@@ -1,0 +1,12 @@
+{
+  "compilerOptions": {
+    /* Projects */
+    "strict": true,
+    "module": "commonjs",
+    "rootDir": "./src",
+    "outDir": "./dist",
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "skipLibCheck": true
+  }
+}
