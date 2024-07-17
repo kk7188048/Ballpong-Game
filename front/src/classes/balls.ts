@@ -35,8 +35,8 @@ export class Ball {
     }
   
     update() {
-      this.vy += gravity;
-      this.x += this.vx;
+      this.vy += gravity; // v =u + gravity here we r not considering time
+      this.x += this.vx; // x = x1 + v there is not acceleration in horizontal direction
       this.y += this.vy;
   
       // Collision with obstacles
@@ -56,7 +56,7 @@ export class Ball {
           this.y += pad(Math.sin(angle) * overlap);
         }
       });
-  
+    //   The position of the object is then adjusted by adding a small displacement in the direction of the collision angle. This displacement is calculated using Math.cos(angle) and Math.sin(angle) to get the x and y components, respectively, and multiplying them by the overlap.
       // Collision with sinks
       for (let i = 0; i < this.sinks.length; i++) {
         const sink = this.sinks[i];
