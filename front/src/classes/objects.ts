@@ -5,6 +5,7 @@ export interface Obstacle {
     x: number;
     y: number;
     radius: number;
+    glow:boolean;
 }
 
 export interface Sink {
@@ -44,7 +45,7 @@ export const createObstacles = (): Obstacle[] => {
         const spacing = 36;
         for (let col = 0; col < numObstacles; col++) {
             const x = WIDTH / 2 - spacing * (row / 2 - col);
-            obstacles.push({x: pad(x), y: pad(y), radius: obstacleRadius });
+            obstacles.push({x: pad(x), y: pad(y), radius: obstacleRadius, glow: false});
         }   
     }
     return obstacles;
