@@ -34,17 +34,28 @@ export class Ball {
     this.ctx.closePath();
   }
 
+  
+
+
   update() {
     this.vy += gravity; // v =u + gravity here we r not considering time
     this.x += this.vx; // x = x1 + v there is not acceleration in horizontal direction
     this.y += this.vy;
-
+    
     // Collision with obstacles
     this.obstacles.forEach(obstacle => {
       const dist = Math.hypot(this.x - obstacle.x, this.y - obstacle.y);
       if (dist < pad(this.radius + obstacle.radius)) {
+        
+        obstacle.glow = true;
 
+        
+        // Reset the collided flag after a delay
+        setTimeout(() => {
+            obstacle.glow = false;
+        }, 500); // Adjust delay as needed
         // Calculate collision angle
+        
         const angle = Math.atan2(this.y - obstacle.y, this.x - obstacle.x);
         // Reflect velocity
         const speed = Math.sqrt(this.vx * this.vx + this.vy * this.vy);
@@ -56,7 +67,7 @@ export class Ball {
         this.x += pad(Math.cos(angle) * overlap);
         this.y += pad(Math.sin(angle) * overlap);
 
-
+        
       }
       
     });

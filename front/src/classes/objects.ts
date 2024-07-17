@@ -38,6 +38,7 @@ const MULTIPLIERS: {[ key: number ]: number} = {
 
 export const createObstacles = (): Obstacle[] => {
     const obstacles: Obstacle[] = [];
+    
     const rows = 18;
     for (let row = 2; row < rows; row++) {
         const numObstacles = row + 1;
@@ -46,6 +47,7 @@ export const createObstacles = (): Obstacle[] => {
         for (let col = 0; col < numObstacles; col++) {
             const x = WIDTH / 2 - spacing * (row / 2 - col);
             obstacles.push({x: pad(x), y: pad(y), radius: obstacleRadius, glow: false});
+            
         }   
     }
     return obstacles;

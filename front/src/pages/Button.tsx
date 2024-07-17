@@ -10,9 +10,11 @@ export const Button = ({
     return (
       <button
         onClick={onClick}
-        className={`bg-white hover:bg-yellow-400 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow ${className}`}
+        className={`glowing-btn ${className}`}
       >
         {children}
       </button>
     );
   };
+
+  // <button class='glowing-btn'><span class='glowing-txt'>C<span class='faulty-letter'>L</span>ICK</span></button>
